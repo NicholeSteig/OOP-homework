@@ -5,6 +5,32 @@ var fs = require('fs');
 // * name
 // * id
 // * title
+enquirer.prompt([
+    {
+        type: "input",
+        name: "name",
+        message: "What is your name?"
+    },
+    {
+        type: "input",
+        name: "id",
+        message: "What is your ID number?"
+    },
+    {
+        type: "input",
+        name: "title",
+        message: "What is your title?"
+    }
+    
+]).then(function(input) {
+    class Employee {
+        constructor() {
+         this.name = input.name;
+         this.id = input.id;
+         this.title = input.title;   
+        }
+    }
+})
 // * getName()
 // * getId()
 // * getEmail()
@@ -12,7 +38,6 @@ var fs = require('fs');
 
 // Manager:
 // * officeNumber
-
 // * getRole() (Overridden to return 'Manager')
 
 // Engineer:
