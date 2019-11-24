@@ -36,10 +36,34 @@ enquirer.prompt([
         constructor() {
          this.name = input.name;
          this.id = input.id;
-         this.title = input.title; 
          this.role = "Employee";  
         }
     }
+    if (this.title === "Manager") {
+        enquirer.prompt([
+            {
+                type: "input",
+                name: "officeNumber",
+                message: "What is your office number?"
+            },
+        class Manager extends Employee {
+            constructor(officeNumber) {
+                super(input.name, input.id, input.title, "Employee");
+                this.role = "Manager";
+
+            }
+        }
+    ]).then(function(input) {
+
+    });
+
+    };
+    if (this.title === "Manager") {
+
+    };
+    if (this.title === "Manager") {
+
+    };
 })
 // * getName()
 // * getId()
@@ -49,6 +73,7 @@ enquirer.prompt([
 // Manager:
 // * officeNumber
 // * getRole() (Overridden to return 'Manager')
+
 
 
 // Engineer:
