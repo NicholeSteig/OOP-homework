@@ -5,7 +5,7 @@ var fs = require('fs');
 // * name
 // * id
 // * title
-enquirer.prompt([
+inquirer.prompt([
     {
         type: "input",
         name: "name",
@@ -32,67 +32,82 @@ enquirer.prompt([
     }
 
 ]).then(function (input) {
+    role = input.role;
+    name = input.name;
+    id = input.id;
+    email = email.id;
+
     class Employee {
-        constructor() {
-            this.name = input.name;
-            this.id = input.id;
-            this.role = "Employee";
+        constructor(role, name, id, email) {
+            this.role = role;
+            this.name = name;
+            this.id = id;
+            this.email = email;
         }
+
+        getData() {
+            console.log(this.role);
+            console.log(this.name);
+            console.log(this.id);
+            console.log(this.email);
+        };
     }
-    if (this.title === "Manager") {
-        enquirer.prompt([
-            {
-                type: "input",
-                name: "officeNumber",
-                message: "What is your office number?"
-            },
+    module.exports = Employee;
+
+    // if (this.title === "Manager") {
+    //     enquirer.prompt([
+    //         {
+    //             type: "input",
+    //             name: "officeNumber",
+    //             message: "What is your office number?"
+    //         },
 
 
-        ]).then(function (input) {
-            class Manager extends Employee {
-                constructor(officeNumber) {
-                    super(input.name, input.id, input.title, "Employee");
-                    this.role = "Manager";
-                };
-            };
-        });
-    };
-    if (this.title === "Engineer") {
-        enquirer.prompt([
-            {
-                type: "input",
-                name: "github",
-                message: "What is your GitHub username?"
-            },
+    //     ]).then(function (input) {
+    //         class Manager extends Employee {
+    //             constructor(officeNumber) {
+    //                 super(input.name, input.id, input.title, "Employee");
+    //                 this.role = "Manager";
+    //             };
+    //         };
+    //     });
+    // };
+    // if (this.title === "Engineer") {
+    //     enquirer.prompt([
+    //         {
+    //             type: "input",
+    //             name: "github",
+    //             message: "What is your GitHub username?"
+    //         },
 
 
-        ]).then(function (input) {
-            class Engineer extends Employee {
-                constructor(github) {
-                    super(input.name, input.id, input.title, "Employee");
-                    this.role = "Engineer";
-                };
-            };
-        });
-    };
-    if (this.title === "Intern") {
-        enquirer.prompt([
-            {
-                type: "input",
-                name: "school",
-                message: "What is your school?"
-            },
+    //     ]).then(function (input) {
+    //         class Engineer extends Employee {
+    //             constructor(github) {
+    //                 super(input.name, input.id, input.title, "Employee");
+    //                 this.role = "Engineer";
+    //             };
+    //         };
+    //     });
+    // };
+    // if (this.title === "Intern") {
+    //     enquirer.prompt([
+    //         {
+    //             type: "input",
+    //             name: "school",
+    //             message: "What is your school?"
+    //         },
 
 
-        ]).then(function (input) {
-            class Manager extends Employee {
-                constructor(officeNumber) {
-                    super(input.name, input.id, input.title, "Employee");
-                    this.role = "Intern";
-                };
-            };
-        });
-    };
+    //     ]).then(function (input) {
+    //         class Manager extends Employee {
+    //             constructor(officeNumber) {
+    //                 super(input.name, input.id, input.title, "Employee");
+    //                 this.role = "Intern";
+    //             };
+    //         };
+    //     });
+    // };
 });
 // * getName()
 // * getId()
@@ -114,19 +129,3 @@ enquirer.prompt([
 // * school 
 // * getSchool()
 // * getRole() (Overridden to return 'Intern')
-
-function getRole() {
-    return this.role;
-};
-
-function getName() {
-    return this.name;
-};
-
-function getID() {
-    return this.id;
-};
-
-function getEmail() {
-    return this.email;
-}
