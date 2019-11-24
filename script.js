@@ -17,9 +17,18 @@ enquirer.prompt([
         message: "What is your ID number?"
     },
     {
-        type: "input",
+        type: "checkbox",
         name: "title",
-        message: "What is your title?"
+        choices: [
+            "Manager",
+            "Engineer",
+            "Intern"
+        ]
+    },
+    {
+        type: "input",
+        name: "email",
+        message: "What is your email address?"
     }
     
 ]).then(function(input) {
@@ -27,7 +36,8 @@ enquirer.prompt([
         constructor() {
          this.name = input.name;
          this.id = input.id;
-         this.title = input.title;   
+         this.title = input.title; 
+         this.role = "Employee";  
         }
     }
 })
@@ -40,6 +50,7 @@ enquirer.prompt([
 // * officeNumber
 // * getRole() (Overridden to return 'Manager')
 
+
 // Engineer:
 // * github  (GitHub username)
 // * getGithub()
@@ -49,3 +60,19 @@ enquirer.prompt([
 // * school 
 // * getSchool()
 // * getRole() (Overridden to return 'Intern')
+
+function getRole() {
+    return this.role;
+};
+
+function getName() {
+    return this.name;
+};
+
+function getID() {
+return this.id;
+};
+
+function getEmail() {
+    return this.email;
+}
