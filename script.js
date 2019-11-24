@@ -30,13 +30,13 @@ enquirer.prompt([
         name: "email",
         message: "What is your email address?"
     }
-    
-]).then(function(input) {
+
+]).then(function (input) {
     class Employee {
         constructor() {
-         this.name = input.name;
-         this.id = input.id;
-         this.role = "Employee";  
+            this.name = input.name;
+            this.id = input.id;
+            this.role = "Employee";
         }
     }
     if (this.title === "Manager") {
@@ -46,25 +46,54 @@ enquirer.prompt([
                 name: "officeNumber",
                 message: "What is your office number?"
             },
-        class Manager extends Employee {
-            constructor(officeNumber) {
-                super(input.name, input.id, input.title, "Employee");
-                this.role = "Manager";
 
-            }
-        }
-    ]).then(function(input) {
 
-    });
-
+        ]).then(function (input) {
+            class Manager extends Employee {
+                constructor(officeNumber) {
+                    super(input.name, input.id, input.title, "Employee");
+                    this.role = "Manager";
+                };
+            };
+        });
     };
-    if (this.title === "Manager") {
+    if (this.title === "Engineer") {
+        enquirer.prompt([
+            {
+                type: "input",
+                name: "github",
+                message: "What is your GitHub username?"
+            },
 
-    };
-    if (this.title === "Manager") {
 
+        ]).then(function (input) {
+            class Engineer extends Employee {
+                constructor(github) {
+                    super(input.name, input.id, input.title, "Employee");
+                    this.role = "Engineer";
+                };
+            };
+        });
     };
-})
+    if (this.title === "Intern") {
+        enquirer.prompt([
+            {
+                type: "input",
+                name: "school",
+                message: "What is your school?"
+            },
+
+
+        ]).then(function (input) {
+            class Manager extends Employee {
+                constructor(officeNumber) {
+                    super(input.name, input.id, input.title, "Employee");
+                    this.role = "Intern";
+                };
+            };
+        });
+    };
+});
 // * getName()
 // * getId()
 // * getEmail()
@@ -95,7 +124,7 @@ function getName() {
 };
 
 function getID() {
-return this.id;
+    return this.id;
 };
 
 function getEmail() {
